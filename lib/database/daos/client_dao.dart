@@ -8,12 +8,12 @@ part 'client_dao.g.dart';
 class ClientsDao extends DatabaseAccessor<Database> with _$ClientsDaoMixin {
   ClientsDao(super.database);
 
-  Future<List<Client>> getAll() {
-    return clients.all().get();
+  Stream<List<Client>> getAll() {
+    return clients.all().watch();
   }
 
   Future<int> createOrUpdate(Client client) {
-    return clients.insertOnConflictUpdate(client);
+    return clients.insertOne(client);
   }
 
   Future<bool> deleteOne(Client client) {

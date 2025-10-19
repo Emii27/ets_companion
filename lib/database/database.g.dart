@@ -43,7 +43,7 @@ class $ClientsTable extends Clients with TableInfo<$ClientsTable, Client> {
   }
 
   @override
-  Set<GeneratedColumn> get $primaryKey => const {};
+  Set<GeneratedColumn> get $primaryKey => {name};
   @override
   Client map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';

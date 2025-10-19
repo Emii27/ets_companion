@@ -8,15 +8,18 @@ part 'client_service.g.dart';
 @riverpod
 class ClientService extends _$ClientService {
   @override
-  Future<List<Client>> build() async {
+  Stream<List<Client>> build() {
     return fetchAll();
   }
 
-  Future<List<Client>> fetchAll() async {
+  Stream<List<Client>> fetchAll() {
     final clientDao = ClientsDao(ref.watch(databaseProvider));
-    final clientData = await clientDao.getAll();
+    final clientData = clientDao.getAll();
 
-    return clientData.map((client) => Client.fromClientData(client)).toList();
+    return clientData.map(
+      (clientList) =>
+          clientList.map((client) => Client.fromClientData(client)).toList(),
+    );
   }
 
   Future<int> createOrUpdate(Client client) async {
