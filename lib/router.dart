@@ -1,4 +1,5 @@
 import 'package:ets_companion/components/scaffold_navigation.dart';
+import 'package:ets_companion/views/client_screen.dart';
 import 'package:ets_companion/views/home_screen.dart';
 import 'package:ets_companion/views/todo_screen.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,17 @@ final _shellRoutes = <NavigationRailDestination, StatefulShellBranch>{
   ): StatefulShellBranch(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+    ],
+  ),
+  NavigationRailDestination(
+    icon: Icon(Icons.person),
+    label: Text('Clients'),
+  ): StatefulShellBranch(
+    routes: [
+      GoRoute(
+        path: '/clients',
+        builder: (context, state) => const ClientScreen(),
+      ),
     ],
   ),
   NavigationRailDestination(

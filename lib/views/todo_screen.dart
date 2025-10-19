@@ -20,6 +20,8 @@ class TodoScreen extends StatelessWidget {
           children: [
             BulletText('Base Navigation', isStrikethrough: true),
             BulletText('Todo screen', isStrikethrough: true),
+            BulletText('Client screen', isStrikethrough: true),
+            BulletText('Client DB'),
           ],
         ),
       ],
