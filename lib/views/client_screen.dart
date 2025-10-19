@@ -1,4 +1,5 @@
 import 'package:ets_companion/components/data_table.dart';
+import 'package:ets_companion/components/screen_layout.dart';
 import 'package:ets_companion/utils/spacing_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -7,16 +8,12 @@ class ClientScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(SpacingUtils.space300),
+    return ScreenLayout(
+      title: "Clients",
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        spacing: SpacingUtils.space300,
+        spacing: SpacingUtils.space200,
         children: [
-          Text(
-            "Clients".toUpperCase(),
-            style: Theme.of(context).textTheme.displayMedium,
-          ),
           Card(
             child: CustomDataTable(
               headers: _buildHeaders(),

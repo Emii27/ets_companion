@@ -1,4 +1,4 @@
-import 'package:ets_companion/utils/spacing_utils.dart';
+import 'package:ets_companion/components/screen_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:term_glyph/term_glyph.dart' as glyph;
 
@@ -7,24 +7,18 @@ class TodoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.all(SpacingUtils.space300),
-      children: [
-        Text(
-          'To do'.toUpperCase(),
-          style: Theme.of(context).textTheme.displayMedium,
-        ),
-        SizedBox(height: SpacingUtils.space400),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BulletText('Base Navigation', isStrikethrough: true),
-            BulletText('Todo screen', isStrikethrough: true),
-            BulletText('Client screen', isStrikethrough: true),
-            BulletText('Client DB'),
-          ],
-        ),
-      ],
+    return ScreenLayout(
+      title: "To do",
+      child: ListView(
+        children: [
+          BulletText('Base Navigation', isStrikethrough: true),
+          BulletText('Todo screen', isStrikethrough: true),
+          BulletText('Client screen', isStrikethrough: true),
+          BulletText('Client DB'),
+          BulletText('Job screen'),
+          BulletText('Job DB'),
+        ],
+      ),
     );
   }
 }
