@@ -40,6 +40,7 @@ dependencies:
   drift_flutter: ^0.2.7
   path_provider: ^2.1.5
   go_router: ^16.2.5
+  term_glyph: ^1.2.2
 
 dev_dependencies:
   flutter_test:
