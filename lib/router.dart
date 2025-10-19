@@ -1,6 +1,7 @@
 import 'package:ets_companion/components/scaffold_navigation.dart';
 import 'package:ets_companion/views/client_screen.dart';
 import 'package:ets_companion/views/home_screen.dart';
+import 'package:ets_companion/views/job_screen.dart';
 import 'package:ets_companion/views/todo_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -29,6 +30,14 @@ final _shellRoutes = <NavigationRailDestination, StatefulShellBranch>{
   ): StatefulShellBranch(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+    ],
+  ),
+  NavigationRailDestination(
+    icon: Icon(Icons.local_shipping),
+    label: Text('Jobs'),
+  ): StatefulShellBranch(
+    routes: [
+      GoRoute(path: '/jobs', builder: (context, state) => const JobScreen()),
     ],
   ),
   NavigationRailDestination(

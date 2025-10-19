@@ -15,7 +15,7 @@ class TodoScreen extends StatelessWidget {
           BulletText('Todo screen', isStrikethrough: true),
           BulletText('Client screen', isStrikethrough: true),
           BulletText('Client DB'),
-          BulletText('Job screen'),
+          BulletText('Job screen', isStrikethrough: true),
           BulletText('Job DB'),
         ],
       ),
