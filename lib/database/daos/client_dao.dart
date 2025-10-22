@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:ets_companion/database/database.dart';
 import 'package:ets_companion/database/tables/client.dart';
+import 'package:ets_companion/models/client_model.dart';
 
 part 'client_dao.g.dart';
 
@@ -12,11 +13,16 @@ class ClientsDao extends DatabaseAccessor<Database> with _$ClientsDaoMixin {
     return clients.all().watch();
   }
 
-  Future<int> createOrUpdate(Client client) {
-    return clients.insertOne(client);
+  Future<int> createOrUpdate(ClientModel client) {
+    final clientCompanion = ClientsCompanion(
+      id: Value.absentIfNull(client.id),
+      name: Value(client.name),
+    );
+
+    return clients.insertOnConflictUpdate(clientCompanion);
   }
 
-  Future<bool> deleteOne(Client client) {
-    return clients.deleteOne(client);
+  Future<int> deleteOne(int id) {
+    return clients.deleteWhere((client) => client.id.equals(id));
   }
 }

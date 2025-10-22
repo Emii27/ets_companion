@@ -1,17 +1,12 @@
-import 'package:ets_companion/database/database.dart' as db;
-import 'package:flutter/material.dart';
+import 'package:ets_companion/database/database.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-class Client {
-  final String name;
+part 'client_model.freezed.dart';
 
-  const Client({required this.name});
+@freezed
+abstract class ClientModel with _$ClientModel {
+  const factory ClientModel({int? id, required String name}) = _ClientModel;
 
-  factory Client.fromClientData(db.Client client) {
-    return Client(name: client.name);
-  }
-
-  db.Client toClientData() {
-    return db.Client(name: name);
-  }
+  factory ClientModel.fromClient(Client client) =>
+      ClientModel(id: client.id, name: client.name);
 }

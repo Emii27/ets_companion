@@ -13,7 +13,7 @@ part of 'client_service.dart';
 const clientServiceProvider = ClientServiceProvider._();
 
 final class ClientServiceProvider
-    extends $StreamNotifierProvider<ClientService, List<Client>> {
+    extends $StreamNotifierProvider<ClientService, List<ClientModel>> {
   const ClientServiceProvider._()
     : super(
         from: null,
@@ -33,20 +33,21 @@ final class ClientServiceProvider
   ClientService create() => ClientService();
 }
 
-String _$clientServiceHash() => r'3e2bade81b249d5a9c97883bde674c6b4ddb2022';
+String _$clientServiceHash() => r'a25b8e79ed764929e83261a62d3c58d3755a13b5';
 
-abstract class _$ClientService extends $StreamNotifier<List<Client>> {
-  Stream<List<Client>> build();
+abstract class _$ClientService extends $StreamNotifier<List<ClientModel>> {
+  Stream<List<ClientModel>> build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<AsyncValue<List<Client>>, List<Client>>;
+    final ref =
+        this.ref as $Ref<AsyncValue<List<ClientModel>>, List<ClientModel>>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<List<Client>>, List<Client>>,
-              AsyncValue<List<Client>>,
+              AnyNotifier<AsyncValue<List<ClientModel>>, List<ClientModel>>,
+              AsyncValue<List<ClientModel>>,
               Object?,
               Object?
             >;

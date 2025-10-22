@@ -45,8 +45,8 @@ class ClientScreen extends ConsumerWidget {
     final clientsAsync = ref.watch(clientServiceProvider);
     final clients = clientsAsync.when(
       data: (clients) => clients,
-      error: (_, _) => <Client>[],
-      loading: () => <Client>[],
+      error: (_, _) => <ClientModel>[],
+      loading: () => <ClientModel>[],
     );
 
     return clients
@@ -67,7 +67,7 @@ class ClientScreen extends ConsumerWidget {
               onPressed: () {
                 ref
                     .read(clientServiceProvider.notifier)
-                    .createOrUpdate(Client(name: "Posped"));
+                    .createOrUpdate(ClientModel(name: "Posped"));
 
                 Navigator.pop(context);
               },
@@ -75,9 +75,7 @@ class ClientScreen extends ConsumerWidget {
             TextButton(
               child: Text("DELETE"),
               onPressed: () {
-                ref
-                    .read(clientServiceProvider.notifier)
-                    .delete(Client(name: "Posped"));
+                ref.read(clientServiceProvider.notifier).delete(1);
 
                 Navigator.pop(context);
               },
