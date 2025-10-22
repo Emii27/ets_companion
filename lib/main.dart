@@ -1,7 +1,10 @@
+import 'package:ets_companion/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(ProviderScope(child: const MyApp()));
 }
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: "ETS Companion",
       theme: theme,
-      // routerConfig: ,
+      routerConfig: router,
     );
   }
 }
