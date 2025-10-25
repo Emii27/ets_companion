@@ -1,4 +1,5 @@
 import 'package:ets_companion/components/scaffold_navigation.dart';
+import 'package:ets_companion/views/client_create_screen.dart';
 import 'package:ets_companion/views/client_screen.dart';
 import 'package:ets_companion/views/home_screen.dart';
 import 'package:ets_companion/views/job_screen.dart';
@@ -48,6 +49,12 @@ final _shellRoutes = <NavigationRailDestination, StatefulShellBranch>{
       GoRoute(
         path: '/clients',
         builder: (context, state) => const ClientScreen(),
+        routes: [
+          GoRoute(
+            path: '/create',
+            builder: (context, state) => const ClientCreateScreen(),
+          ),
+        ],
       ),
     ],
   ),

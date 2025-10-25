@@ -5,6 +5,7 @@ import 'package:ets_companion/services/client_service.dart';
 import 'package:ets_companion/utils/spacing_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class ClientScreen extends ConsumerWidget {
   const ClientScreen({super.key});
@@ -24,7 +25,8 @@ class ClientScreen extends ConsumerWidget {
             ),
           ),
           FilledButton.icon(
-            onPressed: () => _addClient(context, ref),
+            onPressed: () => context.go('/clients/create'),
+            // onPressed: () => _addClient(context, ref),
             label: Padding(
               padding: const EdgeInsets.all(SpacingUtils.space100),
               child: Text("Add a client"),
@@ -38,7 +40,12 @@ class ClientScreen extends ConsumerWidget {
 
   List<DataColumn> _buildHeaders() {
     const labelList = ["Name"];
-    return labelList.map((label) => DataColumn(label: Text(label))).toList();
+    return labelList
+        .map(
+          (label) =>
+              DataColumn(label: Text(label, overflow: TextOverflow.ellipsis)),
+        )
+        .toList();
   }
 
   List<DataRow> _buildData(WidgetRef ref) {
