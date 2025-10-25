@@ -29,7 +29,8 @@ class ScaffoldNavigation extends StatelessWidget {
     return NavigationRail(
       selectedIndex: navigationShell.currentIndex,
       labelType: NavigationRailLabelType.all,
-      onDestinationSelected: (index) => navigationShell.goBranch(index),
+      onDestinationSelected: (index) =>
+          navigationShell.goBranch(index, initialLocation: true),
       destinations: navigationRailDestinations,
     );
   }

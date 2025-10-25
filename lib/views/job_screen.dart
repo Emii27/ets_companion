@@ -43,7 +43,12 @@ class JobScreen extends StatelessWidget {
       "Cargo type",
       "Weight",
     ];
-    return labelList.map((label) => DataColumn(label: Text(label))).toList();
+    return labelList
+        .map(
+          (label) =>
+              DataColumn(label: Text(label, overflow: TextOverflow.ellipsis)),
+        )
+        .toList();
   }
 
   List<DataRow> _buildData() {

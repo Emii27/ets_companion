@@ -17,7 +17,6 @@ class CustomDataTable extends StatelessWidget {
         columns: headers,
         rows: data,
         headingTextStyle: textTheme.titleMedium?.copyWith(
-          // color: colorScheme.onPrimary,
           fontWeight: FontWeight.bold,
         ),
         headingRowColor: WidgetStateProperty.resolveWith<Color?>(
